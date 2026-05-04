@@ -16,12 +16,15 @@ export default defineConfig({
   
   use: {
     baseURL: 'https://www.saucedemo.com',
-    headless: false,           // browser दिसेल — important for learning
+    // headless: false,           // browser दिसेल — important for learning
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
 
     actionTimeout:10_000, // प्रत्येक action साठी 10 सेकंदाची timeout
     navigationTimeout: 20_000, // navigation साठी 20 सेकंदाची timeout
+    
+  headless: process.env.CI ? true : false,
+
 
   },
 
